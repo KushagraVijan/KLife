@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Users } from '../models/users.model';
 
 @Component({
   selector: 'app-root',
@@ -7,18 +8,28 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  title: string;
+  error = "";
   isPass = false;
+  users: Users = new Users();
+  selectedUser: any;
 
-  constructor() {
-    this.title = "";
+  isCorrectSecret(inp: string): void {
+    this.users.getUsers().forEach(user => {
+      if(!this.isPass && user.getSecretName()==inp) {
+        this.selectedUser = user;
+        this.isPass = true;      
+      }
+    });
   }
 
-  submitSecret(data: any) {
-    if(data.input.toLowerCase()=="divu" || data.input.toLowerCase()=="anshiii" || data.input.toLowerCase()=="kush" || data.input.toLowerCase()=="sam")
+  submitSecret(data: any) {    
+    this.isCorrectSecret(data.input.toLowerCase());
+
+    if(this.isPass)
     {
-      this.title = data.input;
-      this.isPass = true;
-    } 
+      this.error = "";
+    } else {
+      this.error = "Wrong input";  
+    }
   }
 }

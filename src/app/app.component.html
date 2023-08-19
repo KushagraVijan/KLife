@@ -10,14 +10,22 @@
   .w-100 {
     width: 100%;
   }
+  #error {
+    color: red;
+    margin-top: -12px;
+    margin-bottom: 12px;
+    font-weight: 600;
+    text-align: center;
+  }
 </style>
  
 <div>
   <div class="content card center" role="main" *ngIf="!isPass">
-    <form #secret = "ngForm" (ngSubmit)="submitSecret(secret.value)">
-      <input type="text" name="input" class="form-control text-center mb-3" placeholder="Enter secret name" ngModel />    
-      <button type="submit" class="btn btn-primary btn-block w-100">Open Secret</button>
+    <form #secret = "ngForm" (ngSubmit)="submitSecret(secret.value)" autocomplete="off">
+      <input type="text" name="input" class="form-control text-center mb-4" placeholder="Enter secret name" ngModel />  
+      <div id="error" *ngIf="error"> {{error}} </div>  
+      <button type="submit" class="btn btn-primary btn-block w-100">Open Secret Page</button>
     </form>
   </div>
-  <character [name]="title" *ngIf="isPass"></character>
+  <character [user]="selectedUser" *ngIf="isPass"></character>
 </div>

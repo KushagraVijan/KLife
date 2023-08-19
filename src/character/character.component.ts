@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Users } from 'src/models/users.model';
 
 @Component({
   selector: 'character',
@@ -6,22 +7,19 @@ import { Component, Input } from '@angular/core';
 })
 
 export class CharacterComponent {
-    @Input() name: any;
-    fullname = "";
+    @Input() user: any;  
+    u: Users = new Users;
+    fromAdmin: boolean = false;
 
     ngOnInit() {
-      switch(this.name.toLowerCase()) {
-        case "divu": this.fullname = "Divye Chopra";
-        break;  
-        case "anshiii": this.fullname = "Anshika Saini";
-        break;
-        case "kush": this.fullname = "Kushagra Vijan";
-        break;     
-        case "sam": this.fullname = "Sanyam Jain";
-        break;
-        default: this.fullname = "ERROR";
-      }
+      this.fromAdmin = this.user.isAdmin;
+    }
 
-        
+    openUser(u: any) {
+      this.user = u;
+    }
+
+    goToAdminPage() {
+      this.user = this.u.getAdmin();
     }
 }

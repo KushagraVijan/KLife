@@ -1,3 +1,69 @@
-<h1>
-    {{fullname}}
-</h1>
+<style>
+  .card {
+    width: 40%;
+    margin-left: 30%; 
+    position: absolute;
+    top: 20%; 
+    padding: 30px;
+    background-color: aliceblue;
+    font-size: 20px;
+  }
+  .float-left {
+    float: left;
+  }
+  .float-right {
+    float: right;
+  }
+  .text-right {
+    text-align: right;
+  }
+  .mr-3 {
+    margin-right: 12px;
+  }
+  .secrets a:hover {
+    color: blue;
+    cursor: pointer;
+  } 
+</style>
+
+<div class="card center" *ngIf="!user.isAdmin">
+    <div>
+        <a class="btn btn-primary float-right mb-3" href="/">Main Page</a>
+        <button class="btn btn-primary float-right mb-3 mr-3" *ngIf="fromAdmin" (click)="goToAdminPage()">Admin Page</button>
+    </div>
+    <div class="mb-3">
+        <div class="w-50 float-left">
+            <b>Secret Name:</b> 
+        </div>
+        <div class="w-50 float-left text-right">
+            {{user.secretName}} 
+        </div>
+    </div>
+    <div class="mb-3">
+        <div class="w-50 float-left">
+            <b>Full Name:</b> 
+        </div>
+        <div class="w-50 float-left text-right">
+            {{user.fullName}} 
+        </div>
+    </div>
+    <div class="mb-3">
+        <div class="w-50 float-left">
+            <b>Relation:</b> 
+        </div>
+        <div class="w-50 float-left text-right">
+            {{user.relation}} 
+        </div>
+    </div>
+</div>
+
+<div class="card center" *ngIf="user.isAdmin">
+    <div> 
+        <a class="btn btn-primary float-right mb-3" href="/">Main Page</a>
+    </div>
+    <div *ngFor="let user of u.getUsers()">
+        <div class="secrets mb-3" *ngIf="user.isVisibleToAdmin()">
+            <a (click)="openUser(user)">{{user.getSecretName()}}</a>
+        </div>
+    </div>
+</div>
