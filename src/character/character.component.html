@@ -28,7 +28,7 @@
 
 <div class="card center" *ngIf="!user.isAdmin">
     <div>
-        <a class="btn btn-primary float-right mb-3" href="/">Main Page</a>
+        <button class="btn btn-primary float-right mb-3" (click)="goToMainPage()">Main Page</button>
         <button class="btn btn-primary float-right mb-3 mr-3" *ngIf="fromAdmin" (click)="goToAdminPage()">Admin Page</button>
     </div>
     <div class="mb-3">
@@ -59,7 +59,7 @@
 
 <div class="card center" *ngIf="user.isAdmin">
     <div> 
-        <a class="btn btn-primary float-right mb-3" href="/">Main Page</a>
+        <button class="btn btn-primary float-right mb-3" (click)="goToMainPage()">Main Page</button>
     </div>
     <div *ngFor="let user of u.getUsers()">
         <div class="secrets mb-3" *ngIf="user.isVisibleToAdmin()">

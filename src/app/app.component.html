@@ -27,5 +27,5 @@
       <button type="submit" class="btn btn-primary btn-block w-100">Open Secret Page</button>
     </form>
   </div>
-  <character [user]="selectedUser" *ngIf="isPass"></character>
+  <character (passFalse)="isPassFalse()" [user]="selectedUser" *ngIf="isPass"></character>
 </div>

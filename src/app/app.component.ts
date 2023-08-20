@@ -32,4 +32,8 @@ export class AppComponent {
       this.error = "Wrong input";  
     }
   }
+
+  isPassFalse(): void {
+    this.isPass = false;
+  }
 }

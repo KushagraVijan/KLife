@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Users } from 'src/models/users.model';
 
 @Component({
@@ -8,6 +8,8 @@ import { Users } from 'src/models/users.model';
 
 export class CharacterComponent {
     @Input() user: any;  
+    @Output() passFalse = new EventEmitter();
+
     u: Users = new Users;
     fromAdmin: boolean = false;
 
@@ -17,6 +19,10 @@ export class CharacterComponent {
 
     openUser(u: any) {
       this.user = u;
+    }
+
+    goToMainPage() {
+      this.passFalse.emit();
     }
 
     goToAdminPage() {
