@@ -22,12 +22,15 @@ export class Users {
 
     constructor() {
         this.users = [
-            new User('divu', 'Divye Chopra', 'Male BFF', true, false),
-            new User('anshiii', 'Anshika Saini', 'Female BFF', true, false),
-            new User('kush', 'Kushagra', 'Myself', true, false),
-            new User('sam', 'Sanyam Jain', 'Male BFF', true, false),
-            new User('@dmink', '', '', false, true),
-            new User('panda', 'Anshiii', 'My sweet and hot NTGF', false, false)
+            new User('divu', 'Divye Chopra', 'm', 'Male BFF', true, false),
+            new User('anshiii', 'Anshika Saini', 'f', 'Female BFF', true, false),
+            new User('kush', 'Kushagra', 'm', 'Myself', true, false),
+            new User('sam', 'Sanyam Jain', 'm', 'Male BFF', true, false),
+            new User('saira', 'Sairas Arora', 'm', 'Male BFF', true, false),
+            new User('@dmink', '',  'm', '', false, true),
+            new User('panda', 'Anshiii', 'f', 'My sweet and hot NTGF', false, false),
+            new User('sparsh', 'Sparsh Goyal', 'm', 'Close Friend', true, false),
+            new User('pratik', 'Pratik Asija', 'm', 'Flatmate', true, false)
         ];
     }
 }

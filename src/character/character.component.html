@@ -8,6 +8,11 @@
     background-color: aliceblue;
     font-size: 20px;
   }
+  .imgBox {
+    width: 215px;
+    height: 285px;
+    padding: 5px;
+  }
   .float-left {
     float: left;
   }
@@ -16,6 +21,9 @@
   }
   .text-right {
     text-align: right;
+  }
+  .content-right {
+    align-content: right;
   }
   .mr-3 {
     margin-right: 12px;
@@ -27,9 +35,16 @@
 </style>
 
 <div class="card center" *ngIf="!user.isAdmin">
-    <div>
-        <button class="btn btn-primary float-right mb-3" (click)="goToMainPage()">Main Page</button>
-        <button class="btn btn-primary float-right mb-3 mr-3" *ngIf="fromAdmin" (click)="goToAdminPage()">Admin Page</button>
+    <div class="mb-3">
+        <div class="w-50 float-left imgBox mb-3">
+            <img alt="Boy" *ngIf="user.getGender()=='m'" src="../assets/images/boy_icon.png" />
+            <img alt="Girl" *ngIf="user.getGender()=='f'" src="../assets/images/girl_icon.png" />
+            <img alt="Others" *ngIf="user.getGender()==''" />
+        </div>
+        <div class="w-50 float-left text-right">
+            <button class="btn btn-primary float-right mb-3" (click)="goToMainPage()">Main Page</button>
+            <button class="btn btn-primary float-right mb-3 mr-3" *ngIf="fromAdmin" (click)="goToAdminPage()">Admin Page</button>
+        </div>
     </div>
     <div class="mb-3">
         <div class="w-50 float-left">
