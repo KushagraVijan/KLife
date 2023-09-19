@@ -38,13 +38,18 @@
       width: 80%;
       margin-left: 10%;    
     }
+    .inp, 
+    .btn,
+    .error {
+      font-size: 15px;
+    }
   }
 </style>
  
 <div>
   <div class="content card center" role="main" *ngIf="!isPass">
     <form #secret = "ngForm" (ngSubmit)="submitSecret(secret.value)" autocomplete="off">
-      <input type="text" name="input" class="form-control text-center mb-4" placeholder="Enter secret name" ngModel />  
+      <input type="text" name="input" class="inp form-control text-center mb-4" placeholder="Enter secret name" ngModel />  
       <div id="error" *ngIf="error"> {{error}} </div>  
       <button type="submit" class="btn btn-primary btn-block w-100">Open Secret Page</button>
     </form>
