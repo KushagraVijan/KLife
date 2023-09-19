@@ -3,7 +3,7 @@
     width: 40%;
     margin-left: 30%; 
     position: absolute;
-    top: 20%; 
+    top: 15%; 
     padding: 30px;
     background-color: aliceblue;
     font-size: 20px;
@@ -32,19 +32,69 @@
     color: blue;
     cursor: pointer;
   } 
+
+  @media screen and (max-width: 1080px) {
+    .card {
+      width: 50%;
+      margin-left: 25%; 
+      top: 12%;       
+    }
+  }
+
+  @media screen and (max-width: 820px) {
+    .card {
+      width: 60%;
+      margin-left: 20%;    
+    }
+  }
+
+  @media screen and (max-width: 620px) {
+    .card {
+      width: 80%;
+      margin-left: 10%;    
+    }
+  }
+
+  @media screen and (max-width: 520px) {
+    .card {
+      width: 90%;
+      margin-left: 5%;    
+    }
+  }
+
+  @media screen and (max-width: 360px) {
+    .card {
+      width: 92%;
+      margin-left: 4%;
+      font-size: 16px;    
+    }
+    .btn {
+      font-size: 15px;
+    }
+  }
+
+  @media screen and (max-width: 320px) {
+    .card {
+      font-size: 14px;    
+    }
+    .btn {
+      font-size: 13px;
+    }
+  }
 </style>
 
 <div class="card center" *ngIf="!user.isAdmin">
     <div class="mb-3">
-        <div class="w-50 float-left imgBox mb-3">
-            <img alt="Boy" *ngIf="user.getGender()=='m'" src="assets/images/boy_icon.png" />
-            <img alt="Girl" *ngIf="user.getGender()=='f'" src="assets/images/girl_icon.png" />
-            <img alt="Others" *ngIf="user.getGender()==''" />
-        </div>
-        <div class="w-50 float-left text-right">
+        <div class="w-100 float-left text-right">
             <button class="btn btn-primary float-right mb-3" (click)="goToMainPage()">Main Page</button>
             <button class="btn btn-primary float-right mb-3 mr-3" *ngIf="fromAdmin" (click)="goToAdminPage()">Admin Page</button>
         </div>
+        <div class="w-100 float-left imgBox mb-3">
+            <img alt="Boy" *ngIf="user.getGender()=='m'" src="../assets/images/boy_icon.png" />
+            <img alt="Girl" *ngIf="user.getGender()=='f'" src="../assets/images/girl_icon.png" />
+            <img alt="Others" *ngIf="user.getGender()==''" />
+        </div>
+        
     </div>
     <div class="mb-3">
         <div class="w-50 float-left">
