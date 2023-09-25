@@ -5,6 +5,7 @@ export class User {
     private relation: string;
     private homeTown: string;
     private birthday: string;
+    private isImageAvailable: boolean;
     private visibleToAdmin: boolean;
     private isAdmin: boolean;
     private path: string = '../assets/images/';
@@ -14,7 +15,9 @@ export class User {
     }
 
     getImageLocation(): string {
-        if(this.getGender()=='m') {
+        if(this.isImageAvailable) {
+            return this.path + this.secretName + '.png';
+        } else if(this.getGender()=='m') {
             return this.path + 'boy_icon.png';
         } else if(this.getGender()=='f') {
             return this.path + 'girl_icon.png';
@@ -35,13 +38,14 @@ export class User {
         return this.isAdmin;
     }
 
-    constructor(secretName: string, fullName: string, gender: string, relation: string, homeTown: string, birthday: string, visibleToAdmin: boolean, isAdmin: boolean) {
+    constructor(secretName: string, fullName: string, gender: string, relation: string, homeTown: string, birthday: string, isImageAvailable: boolean, visibleToAdmin: boolean, isAdmin: boolean) {
         this.secretName = secretName;
         this.fullName = fullName;
         this.gender = gender;
         this.relation = relation;
         this.homeTown = homeTown;
         this.birthday = birthday;
+        this.isImageAvailable = isImageAvailable;
         this.visibleToAdmin = visibleToAdmin;
         this.isAdmin = isAdmin;
     }
