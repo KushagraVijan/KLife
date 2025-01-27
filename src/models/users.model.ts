@@ -30,7 +30,7 @@ export class Users {
             new User('saira', 'Sairas Arora', 'm', 'Male BFF', 'Faridkot', '16th September', true, true, false),
             new User('@dmink', '',  'm', '', '', '', false, false, true),
             new User('shivu', 'Shivangi Kaushik', 'f', 'Friend', 'Saharanpur', '21st November', true, true, false),
-            new User('panda', 'Anshiii', 'f', 'My sweet and hot NTGF', 'Saharanpur', '17th November', true, false, false),
+            new User('panda', 'Anshiii', 'f', 'My best friend', 'Saharanpur', '17th November', true, false, false),
             new User('sparsh', 'Sparsh Goyal', 'm', 'Close Friend', 'Bathinda', '28th June', true, true, false),
             new User('pratik', 'Pratik Asija', 'm', 'Flatmate', 'Rajpura', '1st December', true, true, false),
             new User('varun', 'Varun Bansal', 'm', 'Friend', 'Sangrur', '27th July', true, true, false),
